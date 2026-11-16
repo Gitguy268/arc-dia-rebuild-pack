@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: JSON parses
+        run: |
+          python3 -m json.tool feature-catalog.json > /dev/null
+          python3 -m json.tool local-evidence.json > /dev/null
+
+      - name: Feature count matches the catalog
+        run: |
+          python3 - <<'EOF'
+          import json
+          c = json.load(open("feature-catalog.json"))
+          n = c["feature_count"]
+          entries = next((v for k, v in c.items() if isinstance(v, list) and len(v) == n), None)
+          assert entries is not None, f"no list of {n} entries found"
+          print(f"{n} entries")
+          EOF
+
+      - name: Links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-concurrency 4 --accept 200,403,429 README.md coding-agent-handoff.md
+          fail: true

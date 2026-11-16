@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-11-07",
+  "scope": "Read-only app bundle metadata; no browser profiles or user data read",
+  "apps": [
+    {
+      "name": "Arc",
+      "bundle_path": "/Applications/Arc.app",
+      "version": "1.133.0",
+      "build": "74573",
+      "executable": "Arc",
+      "info_plist_sha256": "fd2f5858ab5b64214aa19d9a2a20f19ee6fa88b4d99868e84a635498bda9d6c5",
+      "framework_names": [
+        "ArcCore.framework",
+        "FirebaseFirestoreInternal.framework",
+        "Lottie.framework",
+        "Sentry.framework",
+        "Sparkle.framework",
+        "absl.framework",
+        "grpc.framework",
+        "grpcpp.framework",
+        "openssl_grpc.framework"
+      ]
+    },
+    {
+      "name": "Dia",
+      "bundle_path": "/Applications/Dia.app",
+      "version": "1.56.0",
+      "build": "90312",
+      "executable": "Dia",
+      "info_plist_sha256": "ce5cdc917a6bb0585a301bc6d452595b1c7d7c074abf7fef941e150e9be40ad3",
+      "framework_names": [
+        "ArcCore.framework",
+        "GRDB.framework",
+        "Lottie.framework",
+        "Sentry.framework",
+        "Sparkle.framework",
+        "libAIInfra.dylib",
+        "libContentConversion.dylib",
+        "libswiftCompatibilitySpan.dylib"
+      ]
+    }
+  ]
+}
